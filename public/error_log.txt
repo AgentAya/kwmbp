@@ -1,0 +1,10 @@
+ [11-Apr-2025 14:26:50 Europe/Berlin] PHP Warning:  Undefined array key "area" in C:\xampp\htdocs\waste_management_system\public\collect_payment.php on line 218
+[11-Apr-2025 14:26:50 Europe/Berlin] PHP Warning:  Undefined array key "area" in C:\xampp\htdocs\waste_management_system\public\collect_payment.php on line 218
+[11-Apr-2025 14:26:50 Europe/Berlin] PHP Warning:  Undefined array key "area" in C:\xampp\htdocs\waste_management_system\public\collect_payment.php on line 218
+[11-Apr-2025 14:28:27 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ' h.building_type, h.number_of_units, bp.amount 
+    FROM houses h
+    JOIN ...' at line 1 in C:\xampp\htdocs\waste_management_system\public\collect_payment.php:151
+Stack trace:
+#0 C:\xampp\htdocs\waste_management_system\public\collect_payment.php(151): PDO->prepare('\r\n    SELECT h....')
+#1 {main}
+  thrown in C:\xampp\htdocs\waste_management_system\public\collect_payment.php on line 151

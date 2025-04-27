@@ -1,0 +1,2 @@
+<?php
+// house  model
