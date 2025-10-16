@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../app/Controllers/AuthController.php';
+require_once($_SERVER['DOCUMENT_ROOT'] . '/app/Controllers/AuthController.php');
 
 $uri = trim($_SERVER['REQUEST_URI'], '/');
 
