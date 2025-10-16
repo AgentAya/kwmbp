@@ -1,9 +1,10 @@
  <?php
 // Load environment variables if needed (or hard-code for production)
-$host     = 'localhost';
-$dbname   = 'waste_managements';
-$username = 'root';
-$password = '';
+$host = getenv('DB_HOST');
+$port = getenv('DB_PORT');
+$db   = getenv('DB_NAME');
+$user = getenv('DB_USER');
+$pass = getenv('DB_PASS');
 
 // Create a PDO instance with error handling and prepared statements
 try {
