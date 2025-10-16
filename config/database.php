@@ -1,19 +1,14 @@
- <?php
-// Load environment variables if needed (or hard-code for production)
-$host = getenv('DB_HOST');
-$port = getenv('DB_PORT');
-$db   = getenv('DB_NAME');
-$user = getenv('DB_USER');
-$pass = getenv('DB_PASS');
+<?php
+$host     = getenv('DB_HOST');
+$port     = getenv('DB_PORT') ?: '3306'; // default port
+$dbname   = getenv('DB_NAME');
+$username = getenv('DB_USER');
+$password = getenv('DB_PASS');
 
-// Create a PDO instance with error handling and prepared statements
 try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
+    $pdo = new PDO("mysql:host=$host;port=$port;dbname=$dbname", $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    // Use emulated prepared statements false if possible
-    $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 } catch (PDOException $e) {
-    error_log("Database connection error: " . $e->getMessage());
-    die("Database connection failed.");
+    die("Database connection failed: " . $e->getMessage());
 }
 ?>
