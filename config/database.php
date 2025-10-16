@@ -1,6 +1,4 @@
 <?php
-ob_start();
-session_start();
 $host = getenv('DB_HOST');
 $port = getenv('DB_PORT');
 $db   = getenv('DB_NAME');
@@ -15,4 +13,3 @@ try {
 } catch (PDOException $e) {
     die("Database connection failed: " . $e->getMessage());
 }
-ob_end_flush();
