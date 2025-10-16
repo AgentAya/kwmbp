@@ -1,15 +1,15 @@
 <?php
-$host = getenv('DB_HOST');
-$port = getenv('DB_PORT');
-$db   = getenv('DB_NAME');
-$user = getenv('DB_USER');
-$pass = getenv('DB_PASS');
-
-$dsn = "mysql:host=$host;port=$port;dbname=$db";
+$host     = getenv('DB_HOST');
+$port     = getenv('DB_PORT') ?: '3306'; // default MySQL port
+$dbname   = getenv('DB_NAME');
+$username = getenv('DB_USER');
+$password = getenv('DB_PASS');
 
 try {
-    $pdo = new PDO($dsn, $user, $pass);
+    $dsn = "mysql:host=$host;port=$port;dbname=$dbname";
+    $pdo = new PDO($dsn, $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
     die("Database connection failed: " . $e->getMessage());
 }
+?>
